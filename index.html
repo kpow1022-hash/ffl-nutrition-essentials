@@ -39,40 +39,32 @@
 
   /* Hero */
   .hero{
-    background:linear-gradient(160deg, var(--teal) 0%, var(--teal-deep) 100%);
-    color:#F4F5F0;
-    padding:52px 24px 40px;
+    background:var(--bg);
+    color:var(--ink);
+    padding:36px 24px 30px;
     text-align:center;
-    position:relative;
-    overflow:hidden;
   }
-  .hero::after{
-    content:"";
-    position:absolute;
-    right:-60px;
-    bottom:-60px;
-    width:220px;
-    height:220px;
-    border-radius:50%;
-    background:radial-gradient(circle, rgba(255,255,255,0.06), transparent 70%);
-  }
-  .hero-eyebrow{
-    font-size:13px;
-    letter-spacing:0.02em;
-    color:#BFE3DD;
-    margin-bottom:10px;
+  .logo-banner{
+    width:100%;
+    max-width:420px;
+    height:auto;
+    margin:0 auto 22px;
+    display:block;
+    border-radius:14px;
+    box-shadow:0 8px 22px rgba(18,63,60,0.18);
   }
   .hero h1{
-    font-size:clamp(28px, 6vw, 38px);
+    font-size:clamp(26px, 6vw, 34px);
     line-height:1.15;
     max-width:480px;
     margin:0 auto 14px;
+    color:var(--ink);
   }
   .hero p{
     max-width:420px;
     margin:0 auto;
     font-size:15.5px;
-    color:#D8E6E2;
+    color:var(--ink-soft);
   }
   .quad-strip{
     display:flex;
@@ -84,23 +76,6 @@
   .quad-strip .q3{background:var(--sky);}
   .quad-strip .q4{background:var(--leaf);}
 
-  .logo-mark{
-    width:64px;
-    height:64px;
-    margin:0 auto 18px;
-    border-radius:50%;
-    overflow:hidden;
-    display:grid;
-    grid-template-columns:1fr 1fr;
-    grid-template-rows:1fr 1fr;
-    border:3px solid rgba(255,255,255,0.85);
-    box-shadow:0 4px 14px rgba(0,0,0,0.18);
-  }
-  .logo-mark span{display:block;}
-  .logo-mark .q1{background:var(--tomato);}
-  .logo-mark .q2{background:var(--gold);}
-  .logo-mark .q3{background:var(--sky);}
-  .logo-mark .q4{background:var(--leaf);}
 
   .wordmark{
     font-family:'Fraunces', serif;
@@ -227,8 +202,7 @@
 <body>
 
 <div class="hero">
-  <div class="logo-mark"><span class="q1"></span><span class="q2"></span><span class="q3"></span><span class="q4"></span></div>
-  <div class="hero-eyebrow">FOOD FOR LIFE — CLASS RESOURCES</div>
+  <img class="logo-banner" src="ffl-full-logo.jpg" alt="Food for Life — The Power of Food for Health">
   <h1>Take what you learned home with you</h1>
   <p>Everything from today's class, ready to view or download to your phone — no login needed.</p>
 </div>
