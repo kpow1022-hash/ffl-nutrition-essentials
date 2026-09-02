@@ -1,0 +1,303 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Food for Life | Class Resources</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,600&family=Public+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --bg:#FBFAF6;
+    --paper:#FFFFFF;
+    --ink:#1F2B29;
+    --ink-soft:#4B5B57;
+    --teal:#1B5E5A;
+    --teal-deep:#123F3C;
+    --tomato:#D6553F;
+    --gold:#D99A2B;
+    --sky:#3A7CA5;
+    --leaf:#6B9B3F;
+    --line:#E4E1D6;
+  }
+  *{box-sizing:border-box;}
+  body{
+    margin:0;
+    background:var(--bg);
+    color:var(--ink);
+    font-family:'Public Sans', sans-serif;
+    line-height:1.5;
+    -webkit-font-smoothing:antialiased;
+  }
+  h1,h2,h3{
+    font-family:'Fraunces', serif;
+    font-weight:600;
+    margin:0;
+  }
+  a{color:inherit;}
+
+  /* Hero */
+  .hero{
+    background:linear-gradient(160deg, var(--teal) 0%, var(--teal-deep) 100%);
+    color:#F4F5F0;
+    padding:52px 24px 40px;
+    text-align:center;
+    position:relative;
+    overflow:hidden;
+  }
+  .hero::after{
+    content:"";
+    position:absolute;
+    right:-60px;
+    bottom:-60px;
+    width:220px;
+    height:220px;
+    border-radius:50%;
+    background:radial-gradient(circle, rgba(255,255,255,0.06), transparent 70%);
+  }
+  .hero-eyebrow{
+    font-size:13px;
+    letter-spacing:0.02em;
+    color:#BFE3DD;
+    margin-bottom:10px;
+  }
+  .hero h1{
+    font-size:clamp(28px, 6vw, 38px);
+    line-height:1.15;
+    max-width:480px;
+    margin:0 auto 14px;
+  }
+  .hero p{
+    max-width:420px;
+    margin:0 auto;
+    font-size:15.5px;
+    color:#D8E6E2;
+  }
+  .quad-strip{
+    display:flex;
+    height:6px;
+  }
+  .quad-strip span{flex:1;}
+  .quad-strip .q1{background:var(--tomato);}
+  .quad-strip .q2{background:var(--gold);}
+  .quad-strip .q3{background:var(--sky);}
+  .quad-strip .q4{background:var(--leaf);}
+
+  .logo-mark{
+    width:64px;
+    height:64px;
+    margin:0 auto 18px;
+    border-radius:50%;
+    overflow:hidden;
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    grid-template-rows:1fr 1fr;
+    border:3px solid rgba(255,255,255,0.85);
+    box-shadow:0 4px 14px rgba(0,0,0,0.18);
+  }
+  .logo-mark span{display:block;}
+  .logo-mark .q1{background:var(--tomato);}
+  .logo-mark .q2{background:var(--gold);}
+  .logo-mark .q3{background:var(--sky);}
+  .logo-mark .q4{background:var(--leaf);}
+
+  .wordmark{
+    font-family:'Fraunces', serif;
+    font-weight:600;
+    font-size:15px;
+    letter-spacing:0.01em;
+  }
+  .wordmark .food{color:var(--ink);}
+  .wordmark .forlife{color:var(--teal);}
+
+  main{
+    max-width:640px;
+    margin:0 auto;
+    padding:36px 20px 60px;
+  }
+
+  .class-block{
+    background:var(--paper);
+    border:1px solid var(--line);
+    border-radius:14px;
+    padding:26px 24px 22px;
+    margin-bottom:28px;
+  }
+  .class-block + .class-block{margin-top:0;}
+
+  .class-label{
+    display:inline-block;
+    font-size:12.5px;
+    color:var(--teal);
+    font-weight:600;
+    margin-bottom:8px;
+  }
+  .class-block h2{
+    font-size:23px;
+    color:var(--ink);
+    margin-bottom:8px;
+  }
+  .class-desc{
+    color:var(--ink-soft);
+    font-size:14.5px;
+    margin-bottom:20px;
+    max-width:52ch;
+  }
+
+  .resource-list{
+    display:flex;
+    flex-direction:column;
+    gap:10px;
+  }
+  .resource{
+    display:flex;
+    align-items:center;
+    gap:14px;
+    border:1px solid var(--line);
+    border-radius:10px;
+    padding:13px 14px;
+    text-decoration:none;
+    color:var(--ink);
+    transition:border-color 0.15s ease, background 0.15s ease;
+  }
+  .resource:hover, .resource:focus-visible{
+    border-color:var(--teal);
+    background:#F4FAF9;
+  }
+  .resource:focus-visible{outline:2px solid var(--teal); outline-offset:2px;}
+
+  .dot{
+    width:9px;
+    height:9px;
+    border-radius:50%;
+    flex-shrink:0;
+  }
+  .dot.tomato{background:var(--tomato);}
+  .dot.gold{background:var(--gold);}
+  .dot.sky{background:var(--sky);}
+  .dot.leaf{background:var(--leaf);}
+
+  .resource-text{flex:1;}
+  .resource-text .title{
+    font-weight:600;
+    font-size:15px;
+  }
+  .resource-text .desc{
+    font-size:13px;
+    color:var(--ink-soft);
+    margin-top:1px;
+  }
+  .resource-arrow{
+    font-size:13px;
+    color:var(--teal);
+    font-weight:600;
+    white-space:nowrap;
+  }
+
+  /* Upcoming placeholder */
+  .placeholder{
+    border:1.5px dashed var(--line);
+    border-radius:14px;
+    padding:24px;
+    text-align:center;
+    color:var(--ink-soft);
+    font-size:14px;
+  }
+  .placeholder strong{display:block; color:var(--ink); font-size:15px; margin-bottom:4px; font-family:'Fraunces', serif; font-weight:600;}
+
+  footer{
+    text-align:center;
+    padding:30px 20px 46px;
+    font-size:13px;
+    color:var(--ink-soft);
+  }
+  footer .brand{
+    font-family:'Fraunces', serif;
+    font-weight:600;
+    color:var(--ink);
+    font-size:15px;
+    margin-bottom:4px;
+  }
+
+  /* Print-managed build note (hidden on screen, visible if opened as doc) */
+  .build-note{display:none;}
+</style>
+</head>
+<body>
+
+<div class="hero">
+  <div class="logo-mark"><span class="q1"></span><span class="q2"></span><span class="q3"></span><span class="q4"></span></div>
+  <div class="hero-eyebrow">FOOD FOR LIFE — CLASS RESOURCES</div>
+  <h1>Take what you learned home with you</h1>
+  <p>Everything from today's class, ready to view or download to your phone — no login needed.</p>
+</div>
+<div class="quad-strip"><span class="q1"></span><span class="q2"></span><span class="q3"></span><span class="q4"></span></div>
+
+<main>
+
+  <!-- ========================================================
+       CLASS BLOCK — duplicate this whole <section> to add a
+       new class. Update the label, title, description, and
+       the resource links inside .resource-list. Newest class
+       can go at the top of <main>.
+  ======================================================== -->
+  <section class="class-block">
+    <span class="class-label">Nutrition Essentials</span>
+    <h2>Kickstart Your Health</h2>
+    <p class="class-desc">The handouts and guides from today's session — save these to reference as you get started.</p>
+
+    <div class="resource-list">
+      <a class="resource" href="resources/power-plate-bookmark.pdf" target="_blank" rel="noopener">
+        <span class="dot leaf"></span>
+        <span class="resource-text">
+          <span class="title">Power Plate Bookmark</span>
+          <span class="desc">A quick-reference guide to the four food groups</span>
+        </span>
+        <span class="resource-arrow">View →</span>
+      </a>
+
+      <a class="resource" href="resources/vegan-starter-kit.pdf" target="_blank" rel="noopener">
+        <span class="dot tomato"></span>
+        <span class="resource-text">
+          <span class="title">Vegan Starter Kit</span>
+          <span class="desc">Getting started, recipes, FAQs, and success stories</span>
+        </span>
+        <span class="resource-arrow">View →</span>
+      </a>
+
+      <a class="resource" href="resources/food-for-life-brochure.pdf" target="_blank" rel="noopener">
+        <span class="dot sky"></span>
+        <span class="resource-text">
+          <span class="title">Food for Life Brochure</span>
+          <span class="desc">About the program and where to find more classes</span>
+        </span>
+        <span class="resource-arrow">View →</span>
+      </a>
+
+      <a class="resource" href="resources/21-day-kickstart-card.pdf" target="_blank" rel="noopener">
+        <span class="dot gold"></span>
+        <span class="resource-text">
+          <span class="title">21-Day Vegan Kickstart</span>
+          <span class="desc">Free meal plan program to keep your momentum going</span>
+        </span>
+        <span class="resource-arrow">View →</span>
+      </a>
+    </div>
+  </section>
+  <!-- ==================== END CLASS BLOCK ==================== -->
+
+  <div class="placeholder">
+    <strong>More classes coming soon</strong>
+    New sessions and their resources will be added here — bookmark this page.
+  </div>
+
+</main>
+
+<footer>
+  <div class="wordmark"><span class="food">Food</span> <span class="forlife">for Life</span></div>
+  <div style="margin-top:4px;">A community nutrition &amp; cooking program</div>
+</footer>
+
+</body>
+</html>
