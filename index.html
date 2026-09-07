@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Food for Life | Class Resources</title>
+<title>Class Core Literature | Food for Life</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,600&family=Public+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
@@ -76,30 +76,19 @@
   .quad-strip .q3{background:var(--sky);}
   .quad-strip .q4{background:var(--leaf);}
 
-
-  .wordmark{
-    font-family:'Fraunces', serif;
-    font-weight:600;
-    font-size:15px;
-    letter-spacing:0.01em;
-  }
-  .wordmark .food{color:var(--ink);}
-  .wordmark .forlife{color:var(--teal);}
-
   main{
     max-width:640px;
     margin:0 auto;
     padding:36px 20px 60px;
   }
 
-  .class-block{
+  .block{
     background:var(--paper);
     border:1px solid var(--line);
     border-radius:14px;
     padding:26px 24px 22px;
     margin-bottom:28px;
   }
-  .class-block + .class-block{margin-top:0;}
 
   .class-label{
     display:inline-block;
@@ -108,12 +97,12 @@
     font-weight:600;
     margin-bottom:8px;
   }
-  .class-block h2{
+  .block h2{
     font-size:23px;
     color:var(--ink);
     margin-bottom:8px;
   }
-  .class-desc{
+  .block-desc{
     color:var(--ink-soft);
     font-size:14.5px;
     margin-bottom:20px;
@@ -170,7 +159,40 @@
     white-space:nowrap;
   }
 
-  /* Upcoming placeholder */
+  /* Upcoming classes */
+  .event{
+    display:flex;
+    align-items:center;
+    gap:14px;
+    border:1px solid var(--line);
+    border-radius:10px;
+    padding:13px 14px;
+    text-decoration:none;
+    color:var(--ink);
+    transition:border-color 0.15s ease, background 0.15s ease;
+  }
+  .event:hover, .event:focus-visible{
+    border-color:var(--teal);
+    background:#F4FAF9;
+  }
+  .event + .event{margin-top:10px;}
+  .event-date{
+    flex-shrink:0;
+    width:52px;
+    text-align:center;
+    background:var(--teal);
+    color:#fff;
+    border-radius:8px;
+    padding:6px 4px;
+    font-family:'Fraunces', serif;
+  }
+  .event-date .day{font-size:19px; font-weight:600; line-height:1;}
+  .event-date .mon{font-size:10.5px; letter-spacing:0.04em; text-transform:uppercase;}
+  .event-text{flex:1;}
+  .event-text .title{font-weight:600; font-size:15px;}
+  .event-text .desc{font-size:13px; color:var(--ink-soft); margin-top:1px;}
+  .event-arrow{font-size:13px; color:var(--teal); font-weight:600; white-space:nowrap;}
+
   .placeholder{
     border:1.5px dashed var(--line);
     border-radius:14px;
@@ -187,101 +209,38 @@
     font-size:13px;
     color:var(--ink-soft);
   }
-  footer .brand{
+  .wordmark{
     font-family:'Fraunces', serif;
     font-weight:600;
-    color:var(--ink);
     font-size:15px;
-    margin-bottom:4px;
+    letter-spacing:0.01em;
   }
-
-  /* Print-managed build note (hidden on screen, visible if opened as doc) */
-  .build-note{display:none;}
+  .wordmark .food{color:var(--ink);}
+  .wordmark .forlife{color:var(--teal);}
 </style>
 </head>
 <body>
 
 <div class="hero">
   <img class="logo-banner" src="ffl-full-logo.jpg" alt="Food for Life — The Power of Food for Health">
-  <h1>Take what you learned home with you</h1>
-  <p>Everything from today's class, ready to view or download to your phone — no login needed.</p>
+  <h1>Class Core Literature</h1>
+  <p>The core handouts we use across every class, ready to view or download to your phone — no login needed.</p>
 </div>
 <div class="quad-strip"><span class="q1"></span><span class="q2"></span><span class="q3"></span><span class="q4"></span></div>
 
 <main>
 
   <!-- ========================================================
-       CLASS BLOCK — duplicate this whole <section> to add a
-       new class. Update the label, title, description, and
-       the resource links inside .resource-list. Newest class
-       can go at the top of <main>.
+       CORE LITERATURE — the same 4 documents for every class.
+       To add or remove a document, add/remove one <a class="resource">
+       block below and place the matching PDF in this same folder.
   ======================================================== -->
-  <section class="class-block">
+  <section class="block">
     <span class="class-label">Food for Life</span>
-    <h2>Diabetes Initiative</h2>
-    <p class="class-desc">The handouts and guides from today's session — save these to reference as you get started.</p>
+    <h2>Class Core Literature</h2>
+    <p class="block-desc">These four handouts are given out at every class — save them here so you always have them on hand.</p>
 
     <div class="resource-list">
-      <a class="resource" href="intro-foods-fight-diabetes.pdf" target="_blank" rel="noopener">
-        <span class="dot tomato"></span>
-        <span class="resource-text">
-          <span class="title">How Foods Fight Diabetes</span>
-          <span class="desc">An introduction, welcome letter, and recipes</span>
-        </span>
-        <span class="resource-arrow">View →</span>
-      </a>
-
-      <a class="resource" href="quick-fiber-tracking-chart.pdf" target="_blank" rel="noopener">
-        <span class="dot leaf"></span>
-        <span class="resource-text">
-          <span class="title">Quick Fiber Tracking Chart</span>
-          <span class="desc">Score your meals and track your daily fiber intake</span>
-        </span>
-        <span class="resource-arrow">View →</span>
-      </a>
-
-      <a class="resource" href="diet-diabetes-recipes-for-success.pdf" target="_blank" rel="noopener">
-        <span class="dot sky"></span>
-        <span class="resource-text">
-          <span class="title">Diet and Diabetes: Recipes for Success</span>
-          <span class="desc">Fact sheet with meal ideas, recipes, and success stories</span>
-        </span>
-        <span class="resource-arrow">View →</span>
-      </a>
-    </div>
-  </section>
-  <!-- ==================== END CLASS BLOCK ==================== -->
-
-  <!-- ========================================================
-       CLASS BLOCK — duplicate this whole <section> to add a
-       new class. Update the label, title, description, and
-       the resource links inside .resource-list. Newest class
-       can go at the top of <main>.
-  ======================================================== -->
-  <section class="class-block">
-    <span class="class-label">Nutrition Essentials</span>
-    <h2>Kickstart Your Health</h2>
-    <p class="class-desc">The handouts and guides from today's session — save these to reference as you get started.</p>
-
-    <div class="resource-list">
-      <a class="resource" href="power-plate-bookmark.pdf" target="_blank" rel="noopener">
-        <span class="dot leaf"></span>
-        <span class="resource-text">
-          <span class="title">Power Plate Bookmark</span>
-          <span class="desc">A quick-reference guide to the four food groups</span>
-        </span>
-        <span class="resource-arrow">View →</span>
-      </a>
-
-      <a class="resource" href="vegan-starter-kit.pdf" target="_blank" rel="noopener">
-        <span class="dot tomato"></span>
-        <span class="resource-text">
-          <span class="title">Vegan Starter Kit</span>
-          <span class="desc">Getting started, recipes, FAQs, and success stories</span>
-        </span>
-        <span class="resource-arrow">View →</span>
-      </a>
-
       <a class="resource" href="food-for-life-brochure.pdf" target="_blank" rel="noopener">
         <span class="dot sky"></span>
         <span class="resource-text">
@@ -291,25 +250,75 @@
         <span class="resource-arrow">View →</span>
       </a>
 
+      <a class="resource" href="vegan-starter-kit.pdf" target="_blank" rel="noopener">
+        <span class="dot tomato"></span>
+        <span class="resource-text">
+          <span class="title">Good Nutrition: The Power of a Plant-Based Diet</span>
+          <span class="desc">Getting started, recipes, FAQs, and success stories</span>
+        </span>
+        <span class="resource-arrow">View →</span>
+      </a>
+
       <a class="resource" href="21-day-kickstart-card.pdf" target="_blank" rel="noopener">
         <span class="dot gold"></span>
         <span class="resource-text">
-          <span class="title">21-Day Vegan Kickstart</span>
+          <span class="title">21-Day Vegan Kickstart Card</span>
           <span class="desc">Free meal plan program to keep your momentum going</span>
+        </span>
+        <span class="resource-arrow">View →</span>
+      </a>
+
+      <a class="resource" href="power-plate-bookmark.pdf" target="_blank" rel="noopener">
+        <span class="dot leaf"></span>
+        <span class="resource-text">
+          <span class="title">Power Plate Bookmark</span>
+          <span class="desc">A quick-reference guide to the four food groups</span>
         </span>
         <span class="resource-arrow">View →</span>
       </a>
     </div>
   </section>
-  <!-- ==================== END CLASS BLOCK ==================== -->
 
-  <div class="placeholder">
-    <strong>More classes coming soon</strong>
-    New sessions and their resources will be added here — bookmark this page.
-  </div>
+  <!-- ========================================================
+       UPCOMING CLASSES — one <a class="event"> per class.
+       Replace date/title/description/link for each Eventbrite listing.
+  ======================================================== -->
+  <section class="block">
+    <span class="class-label">Sign Up</span>
+    <h2>Upcoming Classes</h2>
+    <p class="block-desc">Register for an upcoming session on Eventbrite.</p>
+
+    <div class="resource-list">
+      <a class="event" href="https://www.eventbrite.com/e/1997619204816?aff=oddtdtcreator" target="_blank" rel="noopener">
+        <span class="event-date"><span class="day">11</span><span class="mon">Sep</span></span>
+        <span class="event-text">
+          <span class="title">Diabetes Initiative: Introduction to How Foods Fight Diabetes</span>
+          <span class="desc">7:00 – 8:30 PM</span>
+        </span>
+        <span class="event-arrow">Register →</span>
+      </a>
+
+      <a class="event" href="https://www.eventbrite.com/e/cancer-project-introduction-to-how-foods-fight-cancer-tickets-1998507466631?aff=oddtdtcreator" target="_blank" rel="noopener">
+        <span class="event-date"><span class="day">26</span><span class="mon">Sep</span></span>
+        <span class="event-text">
+          <span class="title">Cancer Project: Introduction to How Foods Fight Cancer</span>
+          <span class="desc">10:00 AM</span>
+        </span>
+        <span class="event-arrow">Register →</span>
+      </a>
+
+      <a class="event" href="https://www.eventbrite.com/e/food-for-fitness-tickets-1998508791594?aff=oddtdtcreator" target="_blank" rel="noopener">
+        <span class="event-date"><span class="day">10</span><span class="mon">Oct</span></span>
+        <span class="event-text">
+          <span class="title">Food for Fitness</span>
+          <span class="desc">10:00 AM</span>
+        </span>
+        <span class="event-arrow">Register →</span>
+      </a>
+    </div>
+  </section>
 
 </main>
-
 
 <footer>
   <div class="wordmark"><span class="food">Food</span> <span class="forlife">for Life</span></div>
