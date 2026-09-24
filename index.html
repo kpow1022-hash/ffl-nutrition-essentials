@@ -175,7 +175,6 @@
     border-color:var(--teal);
     background:#F4FAF9;
   }
-  .event + .event{margin-top:10px;}
   .event-date{
     flex-shrink:0;
     width:52px;
@@ -217,9 +216,85 @@
   }
   .wordmark .food{color:var(--ink);}
   .wordmark .forlife{color:var(--teal);}
+
+  /* ============ ACCESS GATE ============ */
+  #gate{
+    position:fixed;
+    inset:0;
+    background:linear-gradient(160deg, var(--teal) 0%, var(--teal-deep) 100%);
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    padding:24px;
+    z-index:999;
+  }
+  .gate-card{
+    background:#fff;
+    border-radius:16px;
+    padding:32px 28px;
+    max-width:340px;
+    width:100%;
+    text-align:center;
+    box-shadow:0 12px 32px rgba(0,0,0,0.25);
+  }
+  .gate-card .lock{font-size:30px; margin-bottom:6px;}
+  .gate-card h2{font-size:20px; margin-bottom:6px; color:var(--ink);}
+  .gate-card p{font-size:13.5px; color:var(--ink-soft); margin:0 0 18px;}
+  .gate-card input{
+    width:100%;
+    padding:11px 12px;
+    font-size:15px;
+    border:1px solid var(--line);
+    border-radius:8px;
+    text-align:center;
+    letter-spacing:0.05em;
+    margin-bottom:12px;
+    font-family:'Public Sans', sans-serif;
+  }
+  .gate-card input:focus{outline:2px solid var(--teal); border-color:var(--teal);}
+  .gate-card button{
+    width:100%;
+    padding:11px 12px;
+    font-size:15px;
+    font-weight:600;
+    color:#fff;
+    background:var(--teal);
+    border:none;
+    border-radius:8px;
+    cursor:pointer;
+  }
+  .gate-card button:hover{background:var(--teal-deep);}
+  .gate-error{
+    display:none;
+    color:var(--tomato);
+    font-size:13px;
+    margin-top:10px;
+  }
+  #site-content{display:none;}
 </style>
 </head>
 <body>
+
+<!-- ========================================================
+     ACCESS GATE — simple client-side code check.
+     IMPORTANT: this is a light deterrent, not real security —
+     anyone who views this page's source code can find the
+     code below. Don't use it to protect anything sensitive.
+     To change the code, edit the ACCESS_CODE value in the
+     script at the bottom of this file.
+======================================================== -->
+<div id="gate">
+  <div class="gate-card">
+    <div class="lock">🔒</div>
+    <h2>Class Resources</h2>
+    <p>Enter the access code your instructor gave you.</p>
+    <input type="text" id="gate-input" placeholder="Access code" autocomplete="off">
+    <button onclick="checkGateCode()">Enter</button>
+    <div class="gate-error" id="gate-error">That code didn't work — try again.</div>
+  </div>
+</div>
+
+<div id="site-content">
 
 <div class="hero">
   <img class="logo-banner" src="ffl-full-logo.jpg" alt="Food for Life — The Power of Food for Health">
@@ -280,6 +355,44 @@
   </section>
 
   <!-- ========================================================
+       CANCER PROJECT RESOURCES — 3 documents for this class only.
+  ======================================================== -->
+  <section class="block">
+    <span class="class-label">Food for Life</span>
+    <h2>The Cancer Project Resources</h2>
+    <p class="block-desc">Handouts specific to the Cancer Project class.</p>
+
+    <div class="resource-list">
+      <a class="resource" href="hooray-for-beans.pdf" target="_blank" rel="noopener">
+        <span class="dot tomato"></span>
+        <span class="resource-text">
+          <span class="title">Hooray for Beans!</span>
+          <span class="desc">Tips for adding more beans to your diet comfortably</span>
+        </span>
+        <span class="resource-arrow">View →</span>
+      </a>
+
+      <a class="resource" href="nutrition-rainbow-handout.pdf" target="_blank" rel="noopener">
+        <span class="dot gold"></span>
+        <span class="resource-text">
+          <span class="title">The Nutrition Rainbow</span>
+          <span class="desc">Cancer-fighting nutrients by food color</span>
+        </span>
+        <span class="resource-arrow">View →</span>
+      </a>
+
+      <a class="resource" href="healthy-eating-for-life.pdf" target="_blank" rel="noopener">
+        <span class="dot leaf"></span>
+        <span class="resource-text">
+          <span class="title">Healthy Eating for Life</span>
+          <span class="desc">Food choices for cancer prevention and survival</span>
+        </span>
+        <span class="resource-arrow">View →</span>
+      </a>
+    </div>
+  </section>
+
+  <!-- ========================================================
        UPCOMING CLASSES — one <a class="event"> per class.
        Replace date/title/description/link for each Eventbrite listing.
   ======================================================== -->
@@ -324,6 +437,38 @@
   <div class="wordmark"><span class="food">Food</span> <span class="forlife">for Life</span></div>
   <div style="margin-top:4px;">A community nutrition &amp; cooking program</div>
 </footer>
+
+</div>
+
+<script>
+  // ================= ACCESS GATE LOGIC =================
+  // Change the code below to whatever you want participants to enter.
+  var ACCESS_CODE = "FFL2026";
+
+  function unlockSite(){
+    document.getElementById('gate').style.display = 'none';
+    document.getElementById('site-content').style.display = 'block';
+  }
+
+  function checkGateCode(){
+    var entered = document.getElementById('gate-input').value.trim();
+    if (entered.toLowerCase() === ACCESS_CODE.toLowerCase()) {
+      localStorage.setItem('fflGateUnlocked', 'true');
+      unlockSite();
+    } else {
+      document.getElementById('gate-error').style.display = 'block';
+    }
+  }
+
+  document.getElementById('gate-input').addEventListener('keydown', function(e){
+    if (e.key === 'Enter') checkGateCode();
+  });
+
+  // Already unlocked this device before? Skip straight to content.
+  if (localStorage.getItem('fflGateUnlocked') === 'true') {
+    unlockSite();
+  }
+</script>
 
 </body>
 </html>
